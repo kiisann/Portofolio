@@ -142,6 +142,7 @@ body {
       0 0 50px rgba(99, 102, 241, 0.2),
       0 0 80px rgba(34, 211, 238, 0.1);
   }
+
   100% {
     box-shadow:
       0 0 40px rgba(99, 102, 241, 0.7),
@@ -383,4 +384,3 @@ body {
   opacity: 1;
   transform: scale(1) translateY(0);
 }
-
