@@ -1,0 +1,353 @@
+/* ============================================================
+   FIKI SULISTIAWAN - PORTFOLIO
+   External CSS (Custom styles, Tailwind via CDN in HTML)
+   ============================================================ */
+
+/* -------- Base -------- */
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #060b18;
+  font-family: 'Inter', sans-serif;
+  color: #e2e8f0;
+}
+
+/* -------- Full-Page Scroll Container -------- */
+#fp-container {
+  height: 100vh;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Sembunyikan native scrollbar */
+#fp-container::-webkit-scrollbar { display: none; }
+#fp-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* -------- Full-Page Section -------- */
+.fp-section {
+  height: 100vh;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
+
+/* Section yang kontennya harus tampil semua (tanpa batasan tinggi) */
+.fp-section-tall {
+  height: auto;
+  min-height: 100vh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  overflow: visible;
+  display: block;
+  position: relative;
+  padding: 72px 0 40px;
+}
+
+/* -------- Section Transition Overlay -------- */
+.fp-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  pointer-events: none;
+}
+
+/* -------- Navbar Transition -------- */
+#navbar {
+  transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
+}
+/* Navbar saat di section gelap (default) */
+#navbar.nav-dark .nav-link    { color: #cbd5e1; }
+#navbar.nav-dark .nav-link.active { color: #f1f5f9; }
+/* Navbar saat di section terang */
+#navbar.nav-light {
+  background: rgba(255,255,255,0.85) !important;
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
+  box-shadow: 0 1px 20px rgba(0,0,0,0.06) !important;
+}
+#navbar.nav-light .brand-text  { color: #0f172a !important; }
+#navbar.nav-light .nav-link    { color: #475569; }
+#navbar.nav-light .nav-link.active { color: #0f172a; }
+#navbar.nav-light .nav-link::after { background: #0f172a; }
+#navbar.nav-light .hamburger-line { background-color: #0f172a; }
+
+/* -------- Custom Scrollbar -------- */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0d1526;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #6366f1;
+  border-radius: 3px;
+}
+
+/* -------- Gradient Text -------- */
+.gradient-text {
+  background: linear-gradient(135deg, #818cf8 0%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* -------- Glassmorphism Card -------- */
+.glass {
+  background: rgba(13, 21, 38, 0.6);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+}
+
+/* -------- Profile Ring Glow -------- */
+.profile-ring {
+  background: linear-gradient(135deg, #6366f1, #22d3ee);
+  padding: 3px;
+  border-radius: 50%;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+/* -------- Grid Background -------- */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(99, 102, 241, 0.05) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* -------- Orb Blur Effects -------- */
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* -------- Navbar Link Underline -------- */
+.nav-link {
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #6366f1, #22d3ee);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* -------- Skill Badge -------- */
+.skill-badge {
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-badge:hover {
+  transform: translateY(-3px);
+  border-color: rgba(99, 102, 241, 0.6);
+  box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
+}
+
+/* -------- Primary Button -------- */
+.btn-primary {
+  background: linear-gradient(135deg, #6366f1, #4f46e5);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #818cf8, #22d3ee);
+  transition: left 0.4s ease;
+}
+
+.btn-primary:hover::before {
+  left: 0;
+}
+
+.btn-primary span {
+  position: relative;
+  z-index: 1;
+}
+
+/* -------- Outline Button -------- */
+.btn-outline {
+  border: 1.5px solid rgba(99, 102, 241, 0.5);
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  border-color: #6366f1;
+  background: rgba(99, 102, 241, 0.1);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+}
+
+/* -------- Social Icon -------- */
+.social-icon {
+  transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+  transform: translateY(-4px);
+  color: #818cf8;
+}
+
+/* -------- Stat Card -------- */
+.stat-card {
+  transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(99, 102, 241, 0.4);
+}
+
+/* -------- Scroll Reveal -------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* -------- Cursor Blink -------- */
+.cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background: #818cf8;
+  margin-left: 2px;
+  vertical-align: middle;
+  animation: blink 1s step-end infinite;
+}
+
+/* -------- Animations -------- */
+@keyframes blink {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-18px);
+  }
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+  }
+
+  100% {
+    box-shadow: 0 0 40px rgba(99, 102, 241, 0.9), 0 0 80px rgba(34, 211, 238, 0.3);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+/* -------- Animate Float Utility -------- */
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* -------- Reveal from Left -------- */
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.reveal-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* -------- Reveal from Right -------- */
+.reveal-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+  transition-delay: 0.15s;
+}
+
+.reveal-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* -------- About Card Pop-in -------- */
+.about-card {
+  opacity: 0;
+  transform: scale(0.8) translateY(10px);
+  transition: opacity 0.5s ease 0.9s, transform 0.5s ease 0.9s;
+}
+
+.reveal-left.visible~* .about-card,
+.reveal-left.visible .about-card {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+}
