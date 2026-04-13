@@ -1,8 +1,3 @@
-// ============================================================
-//  FIKI SULISTIAWAN - PORTFOLIO
-//  skills.js — JavaScript DOM Manipulation (Skills Page)
-// ============================================================
-
 // ===== DATA SKILLS =====
 const skillCategories = [
   {
@@ -52,7 +47,6 @@ function renderSkills() {
           <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">${cat.icon}</svg>
         </div>
         <div>
-          <p class="text-xs font-mono text-slate-500">// Category ${ci + 1}</p>
           <h2 class="text-xl font-bold text-slate-100">${cat.title}</h2>
         </div>
         <div class="flex-1 h-px bg-gradient-to-r from-slate-700 to-transparent ml-4"></div>

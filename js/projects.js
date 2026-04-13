@@ -1,80 +1,18 @@
-// ============================================================
-//  FIKI SULISTIAWAN - PORTFOLIO
-//  projects.js — JavaScript DOM Manipulation (Projects Page)
-// ============================================================
-
-// ===== DATA PROYEK =====
+// ===== DATA PROYEK (GitHub: kiisann) =====
 const projects = [
-  {
-    id: 1,
-    title: 'Portfolio Website',
-    desc: 'Website portfolio personal yang responsif dengan dark mode, animasi scroll reveal, dan desain modern menggunakan Tailwind CSS.',
-    tags: ['HTML', 'CSS', 'JavaScript', 'Tailwind'],
-    category: 'Web',
-    github: 'https://github.com/',
-    live: '#',
-    year: '2024',
-    color: 'from-accent-500 to-cyan-400',
-  },
-  {
-    id: 2,
-    title: 'UI Dashboard Design',
-    desc: 'Desain antarmuka dashboard analytics dengan komponen yang konsisten dan layout yang bersih menggunakan pendekatan design system.',
-    tags: ['Figma', 'UI/UX', 'Prototyping'],
-    category: 'Design',
-    github: 'https://github.com/',
-    live: '#',
-    year: '2024',
-    color: 'from-purple-500 to-pink-400',
-  },
-  {
-    id: 3,
-    title: 'Landing Page Bisnis',
-    desc: 'Landing page modern untuk bisnis lokal dengan animasi scroll, formulir kontak fungsional, dan desain responsif untuk semua perangkat.',
-    tags: ['HTML', 'CSS', 'JavaScript'],
-    category: 'Web',
-    github: 'https://github.com/',
-    live: '#',
-    year: '2023',
-    color: 'from-cyan-500 to-blue-400',
-  },
-  {
-    id: 4,
-    title: 'To-Do App',
-    desc: 'Aplikasi manajemen tugas sederhana dengan fitur tambah, hapus, filter status, dan penyimpanan lokal menggunakan localStorage.',
-    tags: ['JavaScript', 'DOM', 'localStorage'],
-    category: 'Web',
-    github: 'https://github.com/',
-    live: '#',
-    year: '2023',
-    color: 'from-green-500 to-teal-400',
-  },
-  {
-    id: 5,
-    title: 'Mobile App Design',
-    desc: 'Desain aplikasi mobile untuk platform e-learning dengan alur user yang intuitif, wireframe lengkap, dan prototype interaktif.',
-    tags: ['Figma', 'Mobile', 'UI/UX'],
-    category: 'Design',
-    github: 'https://github.com/',
-    live: '#',
-    year: '2024',
-    color: 'from-orange-500 to-amber-400',
-  },
-  {
-    id: 6,
-    title: 'Weather App',
-    desc: 'Aplikasi cuaca yang mengambil data real-time dari OpenWeatherMap API dengan tampilan yang bersih dan informasi lengkap.',
-    tags: ['JavaScript', 'API', 'Fetch'],
-    category: 'Web',
-    github: 'https://github.com/',
-    live: '#',
-    year: '2023',
-    color: 'from-sky-500 to-indigo-400',
-  },
+  { id:1, title:'Trendify',                    desc:'Aplikasi web berbasis PHP untuk menampilkan konten trending dengan tampilan modern.',                        tags:['PHP','Web','MySQL'],               category:'Web',    github:'https://github.com/kiisann/Trendify',                  live:'https://github.com/kiisann/Trendify',                  year:'2026', color:'from-violet-500 to-purple-400' },
+  { id:2, title:'ToDoList',                     desc:'Aplikasi Android Praktikum Mata Kuliah Teknologi Aplikasi Mobile menggunakan Jetpack Compose.',                         tags:['Kotlin','Android','Jetpack Compose'], category:'Mobile', github:'https://github.com/kiisann/PrakTAM_2417051030',        live:'https://github.com/kiisann/PrakTAM_2417051030',        year:'2026', color:'from-green-500 to-teal-400'    },
+  { id:3, title:'Digital Modulation Simulator', desc:'Simulator modulasi digital (ASK, FSK, PSK) dibangun dengan Python untuk keperluan akademik.',               tags:['Python','Signal','Simulation'], category:'Other',  github:'https://github.com/kiisann/Digital-Modulation-Simulator', live:'https://github.com/kiisann/Digital-Modulation-Simulator', year:'2026', color:'from-orange-500 to-amber-400'  },
+  { id:4, title:'RentalPS',                    desc:'Sistem informasi rental PlayStation berbasis Java dengan manajemen transaksi dan antarmuka sederhana.',      tags:['Java','OOP','Database'],           category:'Other',  github:'https://github.com/kiisann/RentalPS',                  live:'https://github.com/kiisann/RentalPS',                  year:'2026', color:'from-sky-500 to-blue-400'      },
+  { id:5, title:'Kalender',                    desc:'Aplikasi kalender sederhana berbasis C++ dengan tampilan terminal yang menampilkan tanggal dan bulan.',      tags:['C++','Terminal','Algorithm'],      category:'Other',  github:'https://github.com/kiisann/Kalender',                  live:'https://github.com/kiisann/Kalender',                  year:'2026', color:'from-cyan-500 to-teal-400'     },
+  { id:6, title:'CLI Car Game',               desc:'Project UAS mata kuliah Dasar-Dasar Pemrograman menggunakan C++ dengan fitur manajemen data sederhana.',      tags:['C++','Algorithm','OOP'],           category:'Other',  github:'https://github.com/kiisann/ProjectUASDDP',             live:'https://github.com/kiisann/ProjectUASDDP',             year:'2026', color:'from-indigo-500 to-violet-400'  },
+  { id:7, title:'Birthday',                        desc:'Project web styling modern menggunakan HTML, CSS, JavaScript dengan layout yang bersih dan responsif.',  tags:['HTML','CSS','JavaScript'],               category:'Web',    github:'https://github.com/kiisann/happy-birthday.git',                      live:'https://github.com/kiisann/happy-birthday.git',                      year:'2024', color:'from-yellow-500 to-orange-400' },
+  { id:8, title:'Optimalisasi Investasi Saham', desc:'Project Optimalisasi Investasi Saham Harian Berdasarkan Tingkat ROI Harian dan Volatilitas',                tags:['C++', 'ROI', 'Volatilitas'], category:'Other', github:'https://github.com/kiisann/UAPERTUK.git', live:'https://github.com/kiisann/UAPERTUK.git', year:'2026', color:'from-green-500 to-teal-400'}
 ];
 
-const categories = ['All', 'Web', 'Design'];
+const categories = ['All', 'Web', 'Mobile', 'Other'];
 let activeCategory = 'All';
+
 
 // ===== RENDER FILTER TABS =====
 function renderFilters() {

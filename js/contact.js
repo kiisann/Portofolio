@@ -1,8 +1,3 @@
-// ============================================================
-//  FIKI SULISTIAWAN - PORTFOLIO
-//  contact.js — JavaScript DOM Manipulation (Contact Page)
-// ============================================================
-
 // ===== CONTACT INFO DATA =====
 const contactInfoData = [
   {

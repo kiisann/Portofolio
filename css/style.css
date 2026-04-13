@@ -1,35 +1,23 @@
-/* ============================================================
-   FIKI SULISTIAWAN - PORTFOLIO
-   External CSS (Custom styles, Tailwind via CDN in HTML)
-   ============================================================ */
-
 /* -------- Base -------- */
-html, body {
+html,
+body {
   height: 100%;
-  overflow: hidden;
   background-color: #060b18;
   font-family: 'Inter', sans-serif;
   color: #e2e8f0;
 }
 
-/* -------- Full-Page Scroll Container -------- */
+/* -------- Full-Page Scroll Container (tidak dipakai lagi) -------- */
 #fp-container {
-  height: 100vh;
-  overflow-y: scroll;
-  scroll-snap-type: y mandatory;
-  -webkit-overflow-scrolling: touch;
+  height: auto;
+  overflow-y: auto;
 }
 
-/* Sembunyikan native scrollbar */
-#fp-container::-webkit-scrollbar { display: none; }
-#fp-container { -ms-overflow-style: none; scrollbar-width: none; }
 
 /* -------- Full-Page Section -------- */
 .fp-section {
   height: 100vh;
   min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -41,8 +29,6 @@ html, body {
 .fp-section-tall {
   height: auto;
   min-height: 100vh;
-  scroll-snap-align: start;
-  scroll-snap-stop: always;
   overflow: visible;
   display: block;
   position: relative;
@@ -64,21 +50,43 @@ html, body {
 #navbar {
   transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
+
 /* Navbar saat di section gelap (default) */
-#navbar.nav-dark .nav-link    { color: #cbd5e1; }
-#navbar.nav-dark .nav-link.active { color: #f1f5f9; }
+#navbar.nav-dark .nav-link {
+  color: #cbd5e1;
+}
+
+#navbar.nav-dark .nav-link.active {
+  color: #f1f5f9;
+}
+
 /* Navbar saat di section terang */
 #navbar.nav-light {
-  background: rgba(255,255,255,0.85) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0,0,0,0.08) !important;
-  box-shadow: 0 1px 20px rgba(0,0,0,0.06) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.06) !important;
 }
-#navbar.nav-light .brand-text  { color: #0f172a !important; }
-#navbar.nav-light .nav-link    { color: #475569; }
-#navbar.nav-light .nav-link.active { color: #0f172a; }
-#navbar.nav-light .nav-link::after { background: #0f172a; }
-#navbar.nav-light .hamburger-line { background-color: #0f172a; }
+
+#navbar.nav-light .brand-text {
+  color: #0f172a !important;
+}
+
+#navbar.nav-light .nav-link {
+  color: #475569;
+}
+
+#navbar.nav-light .nav-link.active {
+  color: #0f172a;
+}
+
+#navbar.nav-light .nav-link::after {
+  background: #0f172a;
+}
+
+#navbar.nav-light .hamburger-line {
+  background-color: #0f172a;
+}
 
 /* -------- Custom Scrollbar -------- */
 ::-webkit-scrollbar {
@@ -118,7 +126,30 @@ html, body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* -------- Grid Background -------- */
+/* -------- Profile Photo Glow -------- */
+.photo-glow {
+  box-shadow:
+    0 0 30px rgba(99, 102, 241, 0.5),
+    0 0 60px rgba(99, 102, 241, 0.25),
+    0 0 100px rgba(34, 211, 238, 0.15);
+  animation: photo-glow-pulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes photo-glow-pulse {
+  0% {
+    box-shadow:
+      0 0 25px rgba(99, 102, 241, 0.4),
+      0 0 50px rgba(99, 102, 241, 0.2),
+      0 0 80px rgba(34, 211, 238, 0.1);
+  }
+  100% {
+    box-shadow:
+      0 0 40px rgba(99, 102, 241, 0.7),
+      0 0 80px rgba(99, 102, 241, 0.35),
+      0 0 120px rgba(34, 211, 238, 0.25);
+  }
+}
+
 .bg-grid {
   background-image:
     linear-gradient(rgba(99, 102, 241, 0.05) 1px, transparent 1px),
@@ -192,7 +223,8 @@ html, body {
   left: 0;
 }
 
-.btn-primary span {
+.btn-primary span,
+.btn-primary svg {
   position: relative;
   z-index: 1;
 }
@@ -358,53 +390,92 @@ html, body {
 @media (max-width: 640px) {
 
   /* --- Navbar Mobile --- */
-  #navbar { padding: 0 1rem; }
+  #navbar {
+    padding: 0 1rem;
+  }
 
   /* --- fp-section-tall padding untuk mobile --- */
-  .fp-section-tall { padding: 64px 0 32px; }
+  .fp-section-tall {
+    padding: 64px 0 32px;
+  }
 
   /* --- Hero Section --- */
-  #home .max-w-6xl { padding-top: 5rem; padding-bottom: 3.5rem; }
+  #home .max-w-6xl {
+    padding-top: 5rem;
+    padding-bottom: 3.5rem;
+  }
 
   /* Profile ring lebih kecil di mobile */
-  .profile-ring { width: 9rem; height: 9rem; }
+  .profile-ring {
+    width: 9rem;
+    height: 9rem;
+  }
 
   /* Sembunyikan info chips bawah foto di mobile agar hemat space */
-  #hero-chips { display: none; }
+  #hero-chips {
+    display: none;
+  }
 
   /* Social links hero lebih compact */
-  #hero-social { margin-top: 0; }
+  #hero-social {
+    margin-top: 0;
+  }
 
   /* Scroll indicator posisi */
-  #home .absolute.bottom-8 { bottom: 1.5rem; }
+  #home .absolute.bottom-8 {
+    bottom: 1.5rem;
+  }
 
   /* --- About Section --- */
   /* Foto about lebih kecil di mobile */
-  #about .w-52 { width: 10rem; }
-  #about .h-64 { height: 11rem; }
+  #about .w-52 {
+    width: 10rem;
+  }
 
-  /* Grid info cards About — 1 kolom di mobile sangat kecil */  
-  #about .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  #about .h-64 {
+    height: 11rem;
+  }
+
+  /* Grid info cards About — 1 kolom di mobile sangat kecil */
+  #about .grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
 
   /* --- Projects Section --- */
   /* Heading projects */
-  #projects h2 { font-size: 1.5rem; }
+  #projects h2 {
+    font-size: 1.5rem;
+  }
 
   /* Filter tabs wrap agar tidak overflow */
-  #proj-filter-tabs { gap: 0.5rem; }
-  #proj-filter-tabs button { padding: 0.375rem 0.875rem; font-size: 0.75rem; }
+  #proj-filter-tabs {
+    gap: 0.5rem;
+  }
+
+  #proj-filter-tabs button {
+    padding: 0.375rem 0.875rem;
+    font-size: 0.75rem;
+  }
 
   /* Grid 1 column di mobile */
-  #proj-grid { grid-template-columns: 1fr; }
+  #proj-grid {
+    grid-template-columns: 1fr;
+  }
 
   /* --- Skills Section --- */
-  #skills h2 { font-size: 1.5rem; }
+  #skills h2 {
+    font-size: 1.5rem;
+  }
 
   /* Skill bars grid 1 column */
-  #skills-container .grid { grid-template-columns: 1fr; }
+  #skills-container .grid {
+    grid-template-columns: 1fr;
+  }
 
   /* --- Contact Section --- */
-  #contact h2 { font-size: 1.5rem; }
+  #contact h2 {
+    font-size: 1.5rem;
+  }
 
   /* Grid contact 1 layer: info di atas, form di bawah */
   #contact .grid.lg\\:grid-cols-5 {
@@ -413,15 +484,29 @@ html, body {
   }
 
   /* Contact info cards di mobile */
-  #contact-info-home a { padding: 0.625rem 0.75rem; }
+  #contact-info-home a {
+    padding: 0.625rem 0.75rem;
+  }
 
   /* Form input lebih compact */
-  #contact-form-home { padding: 1rem; }
-  #contact-form-home .grid { grid-template-columns: 1fr; }
+  #contact-form-home {
+    padding: 1rem;
+  }
+
+  #contact-form-home .grid {
+    grid-template-columns: 1fr;
+  }
 
   /* --- Footer --- */
-  footer { padding: 1.25rem 1rem; }
-  footer .flex { flex-direction: column; gap: 0.75rem; text-align: center; }
+  footer {
+    padding: 1.25rem 1rem;
+  }
+
+  footer .flex {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
 }
 
 /* ==========================================
@@ -435,5 +520,7 @@ html, body {
     gap: 2rem;
   }
 
-  #contact-form-home .grid { grid-template-columns: repeat(2, 1fr); }
+  #contact-form-home .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
