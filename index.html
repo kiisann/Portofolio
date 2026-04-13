@@ -147,15 +147,15 @@
       style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'n\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23n)\'/%3E%3C/svg%3E');">
     </div>
 
-    <div class="max-w-6xl mx-auto px-6 py-32 w-full">
-      <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-16">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-20 sm:py-24 w-full">
+      <div class="flex flex-col-reverse lg:flex-row items-center justify-between gap-8 lg:gap-16">
 
         <!-- Left: Text Content -->
-        <div class="flex-1 text-center lg:text-left space-y-6">
+        <div class="flex-1 text-center lg:text-left space-y-4 sm:space-y-5">
 
           <!-- Main Heading -->
           <div id="hero-heading" class="reveal" style="transition-delay: 0.2s;">
-          <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-slate-50">
+          <h1 class="text-2xl sm:text-3xl lg:text-5xl font-extrabold leading-tight tracking-tight text-slate-50">
               Hi, I'm
               <span class="gradient-text">Fiki</span>
               <span class="gradient-text">Sulistiawan</span>
@@ -164,7 +164,7 @@
 
           <!-- Typing Role -->
           <div id="hero-role" class="reveal" style="transition-delay: 0.3s;">
-            <p class="text-lg sm:text-xl font-semibold text-slate-300">
+            <p class="text-base sm:text-lg font-semibold text-slate-300">
               I'm a
               <span class="gradient-text" id="typing-text">Web Developer</span><span class="cursor"></span>
             </p>
@@ -172,7 +172,7 @@
 
           <!-- Description -->
           <div id="hero-desc" class="reveal" style="transition-delay: 0.4s;">
-            <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-lg mx-auto lg:mx-0">
+            <p class="text-slate-400 text-sm sm:text-base leading-relaxed max-w-lg mx-auto lg:mx-0">
               Mahasiswa <span class="text-slate-200 font-medium">Ilmu Komputer</span> di
               <span class="text-accent-400 font-medium">Universitas Lampung</span> yang bersemangat
               membangun solusi digital yang bermakna dan berdampak.
@@ -180,18 +180,18 @@
           </div>
 
           <!-- CTA Buttons -->
-          <div id="hero-cta" class="reveal flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+          <div id="hero-cta" class="reveal flex flex-col sm:flex-row gap-3 justify-center lg:justify-start"
             style="transition-delay: 0.5s;">
-            <a href="projects.html"
-              class="btn-primary px-7 py-3.5 rounded-xl text-sm font-semibold text-white shadow-xl flex items-center justify-center gap-2">
+            <a href="#projects" onclick="scrollToSection(2); return false;"
+              class="btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold text-white shadow-xl flex items-center justify-center gap-2">
               <span>View My Projects</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2.5">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </a>
-            <a href="contact.html"
-              class="btn-outline px-7 py-3.5 rounded-xl text-sm font-semibold text-slate-200 flex items-center justify-center gap-2">
+            <a href="#contact" onclick="scrollToSection(4); return false;"
+              class="btn-outline px-5 py-2.5 rounded-xl text-sm font-semibold text-slate-200 flex items-center justify-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
@@ -203,35 +203,35 @@
 
           <!-- Stat Badges -->
           <div class="reveal flex flex-wrap gap-3 justify-center lg:justify-start" style="transition-delay: 0.55s;">
-            <div class="glass px-4 py-2.5 rounded-xl flex items-center gap-2.5 border border-slate-700/30">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24"
+            <div class="glass px-3 py-2 rounded-xl flex items-center gap-2 border border-slate-700/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round"
                   d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
               </svg>
               <div>
-                <div class="text-base font-extrabold gradient-text leading-none">15+</div>
-                <div class="text-xs text-slate-500 mt-0.5">Projects Completed</div>
+                <div class="text-sm font-extrabold gradient-text leading-none">15+</div>
+                <div class="text-xs text-slate-500 mt-0.5">Projects</div>
               </div>
             </div>
-            <div class="glass px-4 py-2.5 rounded-xl flex items-center gap-2.5 border border-slate-700/30">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24"
+            <div class="glass px-3 py-2 rounded-xl flex items-center gap-2 border border-slate-700/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
               <div>
-                <div class="text-base font-extrabold gradient-text leading-none">3+</div>
-                <div class="text-xs text-slate-500 mt-0.5">Years Experience</div>
+                <div class="text-sm font-extrabold gradient-text leading-none">3+</div>
+                <div class="text-xs text-slate-500 mt-0.5">Tahun</div>
               </div>
             </div>
-            <div class="glass px-4 py-2.5 rounded-xl flex items-center gap-2.5 border border-slate-700/30">
-              <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-accent-400" fill="none" viewBox="0 0 24 24"
+            <div class="glass px-3 py-2 rounded-xl flex items-center gap-2 border border-slate-700/30">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-accent-400" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="1.8">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
               </svg>
               <div>
-                <div class="text-base font-extrabold gradient-text leading-none">100%</div>
-                <div class="text-xs text-slate-500 mt-0.5">Dedication</div>
+                <div class="text-sm font-extrabold gradient-text leading-none">100%</div>
+                <div class="text-xs text-slate-500 mt-0.5">Dedikasi</div>
               </div>
             </div>
           </div>
@@ -265,9 +265,9 @@
         </div>
 
         <!-- Right: Profile Photo -->
-        <div class="flex-shrink-0 flex flex-col items-center gap-6">
+        <div class="flex-shrink-0 flex flex-col items-center gap-4">
           <div id="hero-photo" class="reveal animate-float" style="transition-delay: 0.2s;">
-            <div class="profile-ring w-56 h-56 sm:w-64 sm:h-64 lg:w-72 lg:h-72">
+            <div class="profile-ring w-44 h-44 sm:w-52 sm:h-52 lg:w-64 lg:h-64">
               <div class="w-full h-full rounded-full overflow-hidden bg-dark-700 flex items-center justify-center">
                 <img src="assets/img/profil.jpeg" alt="Fiki Sulistiawan - Mahasiswa Ilmu Komputer Universitas Lampung"
                   class="w-full h-full object-cover object-top"
@@ -316,17 +316,17 @@
   <section id="about" class="fp-section py-0 relative overflow-hidden">
     <div class="orb w-96 h-96 bg-accent-600 opacity-10 -top-10 right-0"></div>
     <div class="orb w-72 h-72 bg-cyan-500 opacity-8 bottom-0 left-0"></div>
-    <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
 
       <!-- Section Title -->
-      <div class="text-center mb-16 reveal">
+      <div class="text-center mb-8 sm:mb-10 reveal">
         <p class="text-accent-400 text-sm font-mono tracking-widest uppercase mb-3">// Who I Am</p>
-        <h2 class="text-3xl sm:text-4xl font-bold text-slate-50">
+        <h2 class="text-2xl sm:text-3xl font-bold text-slate-50">
           About <span class="gradient-text">Me</span>
         </h2>
       </div>
 
-      <div class="grid lg:grid-cols-2 gap-16 items-center">
+      <div class="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center">
 
         <!-- Left: Photo — reveal dari kiri -->
         <div class="reveal-left flex justify-center">
@@ -344,10 +344,10 @@
         </div>
 
         <!-- Right: Bio —— reveal dari kanan -->
-        <div class="reveal-right space-y-5">
+        <div class="reveal-right space-y-4">
           <div class="reveal" style="transition-delay:0.1s">
             <p class="text-accent-400 text-sm font-mono tracking-widest uppercase mb-2">// Biography</p>
-            <h3 class="text-2xl sm:text-3xl font-bold text-slate-50 leading-snug">
+            <h3 class="text-xl sm:text-2xl font-bold text-slate-50 leading-snug">
               Halo! Saya <span class="gradient-text">Fiki Sulistiawan</span>
             </h3>
           </div>
@@ -416,8 +416,8 @@
 
           <!-- CTA -->
           <div class="reveal" style="transition-delay:0.4s">
-            <a href="contact.html"
-              class="inline-flex items-center gap-2 btn-primary px-6 py-3 rounded-xl text-sm font-semibold text-white shadow-xl">
+            <a href="#contact" onclick="scrollToSection(4); return false;"
+              class="inline-flex items-center gap-2 btn-primary px-5 py-2.5 rounded-xl text-sm font-semibold text-white shadow-xl">
               <span>Get In Touch</span>
               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor" stroke-width="2">

@@ -351,3 +351,89 @@ html, body {
   opacity: 1;
   transform: scale(1) translateY(0);
 }
+
+/* ==========================================
+   MOBILE RESPONSIVENESS (max-width: 640px)
+   ========================================== */
+@media (max-width: 640px) {
+
+  /* --- Navbar Mobile --- */
+  #navbar { padding: 0 1rem; }
+
+  /* --- fp-section-tall padding untuk mobile --- */
+  .fp-section-tall { padding: 64px 0 32px; }
+
+  /* --- Hero Section --- */
+  #home .max-w-6xl { padding-top: 5rem; padding-bottom: 3.5rem; }
+
+  /* Profile ring lebih kecil di mobile */
+  .profile-ring { width: 9rem; height: 9rem; }
+
+  /* Sembunyikan info chips bawah foto di mobile agar hemat space */
+  #hero-chips { display: none; }
+
+  /* Social links hero lebih compact */
+  #hero-social { margin-top: 0; }
+
+  /* Scroll indicator posisi */
+  #home .absolute.bottom-8 { bottom: 1.5rem; }
+
+  /* --- About Section --- */
+  /* Foto about lebih kecil di mobile */
+  #about .w-52 { width: 10rem; }
+  #about .h-64 { height: 11rem; }
+
+  /* Grid info cards About — 1 kolom di mobile sangat kecil */  
+  #about .grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+
+  /* --- Projects Section --- */
+  /* Heading projects */
+  #projects h2 { font-size: 1.5rem; }
+
+  /* Filter tabs wrap agar tidak overflow */
+  #proj-filter-tabs { gap: 0.5rem; }
+  #proj-filter-tabs button { padding: 0.375rem 0.875rem; font-size: 0.75rem; }
+
+  /* Grid 1 column di mobile */
+  #proj-grid { grid-template-columns: 1fr; }
+
+  /* --- Skills Section --- */
+  #skills h2 { font-size: 1.5rem; }
+
+  /* Skill bars grid 1 column */
+  #skills-container .grid { grid-template-columns: 1fr; }
+
+  /* --- Contact Section --- */
+  #contact h2 { font-size: 1.5rem; }
+
+  /* Grid contact 1 layer: info di atas, form di bawah */
+  #contact .grid.lg\\:grid-cols-5 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Contact info cards di mobile */
+  #contact-info-home a { padding: 0.625rem 0.75rem; }
+
+  /* Form input lebih compact */
+  #contact-form-home { padding: 1rem; }
+  #contact-form-home .grid { grid-template-columns: 1fr; }
+
+  /* --- Footer --- */
+  footer { padding: 1.25rem 1rem; }
+  footer .flex { flex-direction: column; gap: 0.75rem; text-align: center; }
+}
+
+/* ==========================================
+   TABLET (641px - 1023px)
+   ========================================== */
+@media (min-width: 641px) and (max-width: 1023px) {
+
+  /* Contact grid di tablet */
+  #contact .grid.lg\\:grid-cols-5 {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  #contact-form-home .grid { grid-template-columns: repeat(2, 1fr); }
+}
