@@ -135,7 +135,6 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
       successMsg.classList.add('flex');
       form.reset();
 
-      // Auto-dismiss setelah 5 detik
       setTimeout(() => {
         successMsg.style.transition = 'opacity 0.5s ease';
         successMsg.style.opacity = '0';
