@@ -22,7 +22,6 @@ const contactInfoData = [
   },
 ];
 
-// ===== SOCIAL =====
 const socialLinksData = [
   {
     name: 'GitHub',
@@ -47,7 +46,6 @@ const socialLinksData = [
   },
 ];
 
-// ===== RENDER CONTACT INFO =====
 function renderContactInfo() {
   const container = document.getElementById('contact-info');
   container.innerHTML = contactInfoData.map((info, i) => `
@@ -63,7 +61,6 @@ function renderContactInfo() {
   `).join('');
 }
 
-// ===== RENDER SOCIAL LINKS =====
 function renderSocialLinks() {
   const container = document.getElementById('social-links');
   container.innerHTML = socialLinksData.map(s => `
@@ -74,7 +71,6 @@ function renderSocialLinks() {
   `).join('');
 }
 
-// ===== FORM VALIDATION =====
 function validateForm() {
   let valid = true;
 
@@ -106,7 +102,7 @@ function validateForm() {
   return valid;
 }
 
-// ===== FORM SUBMIT (Formspree) =====
+// Form submit via Formspree
 document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!validateForm()) return;
@@ -116,7 +112,6 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   const successMsg = document.getElementById('success-msg');
   const errorMsg   = document.getElementById('error-msg');
 
-  // Loading state
   btn.disabled = true;
   btnText.textContent = 'Mengirim...';
 
@@ -136,7 +131,6 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
     });
 
     if (res.ok) {
-      // Sukses
       successMsg.classList.remove('hidden');
       successMsg.classList.add('flex');
       form.reset();
@@ -156,7 +150,6 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
       throw new Error('Server error');
     }
   } catch (err) {
-    // Gagal
     errorMsg.classList.remove('hidden');
     errorMsg.classList.add('flex');
     setTimeout(() => {
@@ -175,12 +168,10 @@ document.getElementById('contact-form').addEventListener('submit', async (e) => 
   }
 });
 
-// ===== SCROLL REVEAL =====
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 
-// ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -190,7 +181,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== HAMBURGER MENU =====
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const hamburgerLines = document.querySelectorAll('.hamburger-line');
@@ -209,10 +199,8 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-// ===== FOOTER YEAR =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== INIT =====
 renderContactInfo();
 renderSocialLinks();
 window.addEventListener('load', () => {

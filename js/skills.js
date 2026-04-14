@@ -1,4 +1,3 @@
-// ===== DATA SKILLS =====
 const skillCategories = [
   {
     title: 'Teknologi',
@@ -49,7 +48,6 @@ const skillCategories = [
   },
 ];
 
-// ===== RENDER SKILL CATEGORIES =====
 function renderSkills() {
   const container = document.getElementById('skills-container');
   container.innerHTML = skillCategories.map((cat, ci) => `
@@ -101,12 +99,10 @@ function renderSkills() {
     </div>
   `).join('');
 
-  // Observe reveal & skill bars
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
   observeSkillBars();
 }
 
-// ===== ANIMATE SKILL BARS ON SCROLL =====
 function observeSkillBars() {
   const barObs = new IntersectionObserver(entries => {
     entries.forEach(entry => {
@@ -122,12 +118,10 @@ function observeSkillBars() {
   document.querySelectorAll('.skill-bar').forEach(bar => barObs.observe(bar));
 }
 
-// ===== SCROLL REVEAL =====
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 
-// ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -137,7 +131,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== HAMBURGER MENU =====
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const hamburgerLines = document.querySelectorAll('.hamburger-line');
@@ -156,10 +149,8 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-// ===== FOOTER YEAR =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== INIT =====
 renderSkills();
 window.addEventListener('load', () => {
   document.querySelectorAll('.reveal').forEach((el, i) => {

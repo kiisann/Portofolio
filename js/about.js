@@ -1,4 +1,3 @@
-// ===== NAVBAR SCROLL EFFECT =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -8,9 +7,8 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== HAMBURGER MENU TOGGLE =====
-const hamburgerBtn = document.getElementById('hamburger-btn');
-const mobileMenu   = document.getElementById('mobile-menu');
+const hamburgerBtn   = document.getElementById('hamburger-btn');
+const mobileMenu     = document.getElementById('mobile-menu');
 const hamburgerLines = document.querySelectorAll('.hamburger-line');
 
 hamburgerBtn.addEventListener('click', () => {
@@ -28,7 +26,6 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-// ===== SCROLL REVEAL =====
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -37,22 +34,20 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-
-// ===== EDUCATION DATA =====
 const educationData = [
   {
-    degree:     'S1 Ilmu Komputer',
-    school:     'Universitas Lampung',
-    period:     '2024 – Sekarang',
-    desc:       'Mempelajari dasar-dasar ilmu komputer, algoritma, pemrograman web, basis data, dan rekayasa perangkat lunak.',
-    current:    true,
+    degree:  'S1 Ilmu Komputer',
+    school:  'Universitas Lampung',
+    period:  '2024 – Sekarang',
+    desc:    'Mempelajari dasar-dasar ilmu komputer, algoritma, pemrograman web, basis data, dan rekayasa perangkat lunak.',
+    current: true,
   },
   {
-    degree:     'SMA / Sederajat',
-    school:     'SMA Negeri 2 Kotabumi',
-    period:     '2021 – 2024',
-    desc:       'Lulus dari jurusan IPA dengan minat yang besar pada matematika dan teknologi informasi.',
-    current:    false,
+    degree:  'SMA / Sederajat',
+    school:  'SMA Negeri 2 Kotabumi',
+    period:  '2021 – 2024',
+    desc:    'Lulus dari jurusan IPA dengan minat yang besar pada matematika dan teknologi informasi.',
+    current: false,
   },
 ];
 
@@ -62,13 +57,11 @@ educationData.forEach((edu, i) => {
   el.className = 'reveal glass rounded-2xl p-6 border border-slate-700/30 flex flex-col sm:flex-row gap-5 hover:border-accent-500/30 transition-all duration-300';
   el.style.transitionDelay = `${i * 0.15}s`;
   el.innerHTML = `
-    <!-- Icon -->
     <div class="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-accent-500 to-cyan-400 flex items-center justify-center shadow-lg">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
         <path stroke-linecap="round" stroke-linejoin="round" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/>
       </svg>
     </div>
-    <!-- Content -->
     <div class="flex-1">
       <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
         <h3 class="text-lg font-bold text-slate-100">${edu.degree}</h3>
@@ -84,7 +77,6 @@ educationData.forEach((edu, i) => {
   observer.observe(el);
 });
 
-// ===== INTERESTS DATA =====
 const interestsData = [
   {
     title: 'Web Development',
@@ -126,10 +118,8 @@ interestsData.forEach((item, i) => {
   observer.observe(el);
 });
 
-// ===== FOOTER YEAR =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== TRIGGER PAGE HERO REVEAL =====
 window.addEventListener('load', () => {
   document.querySelectorAll('section:first-of-type .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 200 + i * 120);

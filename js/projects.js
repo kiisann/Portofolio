@@ -1,4 +1,3 @@
-// ===== DATA PROYEK (GitHub: kiisann) =====
 const projects = [
   { id:1, title:'Trendify',                    desc:'Aplikasi web berbasis PHP untuk menampilkan konten trending dengan tampilan modern.',                        tags:['PHP','Web','MySQL'],               category:'Web',    github:'https://github.com/kiisann/Trendify',                  live:'https://github.com/kiisann/Trendify',                  year:'2026', color:'from-violet-500 to-purple-400' },
   { id:2, title:'ToDoList',                     desc:'Aplikasi Android Praktikum Mata Kuliah Teknologi Aplikasi Mobile menggunakan Jetpack Compose.',                         tags:['Kotlin','Android','Jetpack Compose'], category:'Mobile', github:'https://github.com/kiisann/PrakTAM_2417051030',        live:'https://github.com/kiisann/PrakTAM_2417051030',        year:'2026', color:'from-green-500 to-teal-400'    },
@@ -13,8 +12,6 @@ const projects = [
 const categories = ['All', 'Web', 'Mobile', 'Other'];
 let activeCategory = 'All';
 
-
-// ===== RENDER FILTER TABS =====
 function renderFilters() {
   const container = document.getElementById('filter-tabs');
   container.innerHTML = categories.map(cat => `
@@ -30,14 +27,12 @@ function renderFilters() {
   `).join('');
 }
 
-// ===== FILTER PROJECTS =====
 function filterProjects(cat) {
   activeCategory = cat;
   renderFilters();
   renderProjects();
 }
 
-// ===== RENDER PROJECT CARDS =====
 function renderProjects() {
   const grid = document.getElementById('projects-grid');
   const noMsg = document.getElementById('no-projects');
@@ -99,19 +94,16 @@ function renderProjects() {
     </div>
   `).join('');
 
-  // Trigger reveal animation
   document.querySelectorAll('.reveal').forEach(el => {
     if (!el.classList.contains('visible')) revealObs.observe(el);
   });
 }
 
-// ===== SCROLL REVEAL =====
 const revealObs = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// ===== NAVBAR SCROLL =====
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -121,7 +113,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== HAMBURGER MENU =====
 const hamburgerBtn = document.getElementById('hamburger-btn');
 const mobileMenu = document.getElementById('mobile-menu');
 const hamburgerLines = document.querySelectorAll('.hamburger-line');
@@ -140,9 +131,7 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-// ===== FOOTER YEAR =====
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// ===== INIT =====
 renderFilters();
 renderProjects();

@@ -1,5 +1,3 @@
-/* -------- Base -------- */
-html,
 body {
   height: 100%;
   background-color: #060b18;
@@ -7,14 +5,6 @@ body {
   color: #e2e8f0;
 }
 
-/* -------- Full-Page Scroll Container (tidak dipakai lagi) -------- */
-#fp-container {
-  height: auto;
-  overflow-y: auto;
-}
-
-
-/* -------- Full-Page Section -------- */
 .fp-section {
   height: 100vh;
   min-height: 100vh;
@@ -25,7 +15,6 @@ body {
   position: relative;
 }
 
-/* Section yang kontennya harus tampil semua (tanpa batasan tinggi) */
 .fp-section-tall {
   height: auto;
   min-height: 100vh;
@@ -35,7 +24,6 @@ body {
   padding: 72px 0 40px;
 }
 
-/* -------- Section Transition Overlay -------- */
 .fp-section::before {
   content: '';
   position: absolute;
@@ -46,12 +34,10 @@ body {
   pointer-events: none;
 }
 
-/* -------- Navbar Transition -------- */
 #navbar {
   transition: background 0.4s ease, color 0.4s ease, border-color 0.4s ease;
 }
 
-/* Navbar saat di section gelap (default) */
 #navbar.nav-dark .nav-link {
   color: #cbd5e1;
 }
@@ -60,7 +46,6 @@ body {
   color: #f1f5f9;
 }
 
-/* Navbar saat di section terang */
 #navbar.nav-light {
   background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(20px);
@@ -88,7 +73,6 @@ body {
   background-color: #0f172a;
 }
 
-/* -------- Custom Scrollbar -------- */
 ::-webkit-scrollbar {
   width: 6px;
 }
@@ -102,7 +86,6 @@ body {
   border-radius: 3px;
 }
 
-/* -------- Gradient Text -------- */
 .gradient-text {
   background: linear-gradient(135deg, #818cf8 0%, #22d3ee 100%);
   -webkit-background-clip: text;
@@ -110,7 +93,6 @@ body {
   background-clip: text;
 }
 
-/* -------- Glassmorphism Card -------- */
 .glass {
   background: rgba(13, 21, 38, 0.6);
   backdrop-filter: blur(20px);
@@ -118,7 +100,6 @@ body {
   border: 1px solid rgba(99, 102, 241, 0.15);
 }
 
-/* -------- Profile Ring Glow -------- */
 .profile-ring {
   background: linear-gradient(135deg, #6366f1, #22d3ee);
   padding: 3px;
@@ -126,7 +107,6 @@ body {
   animation: glow 2s ease-in-out infinite alternate;
 }
 
-/* -------- Profile Photo Glow -------- */
 .photo-glow {
   box-shadow:
     0 0 30px rgba(99, 102, 241, 0.5),
@@ -158,7 +138,6 @@ body {
   background-size: 48px 48px;
 }
 
-/* -------- Orb Blur Effects -------- */
 .orb {
   position: absolute;
   border-radius: 50%;
@@ -166,7 +145,6 @@ body {
   pointer-events: none;
 }
 
-/* -------- Navbar Link Underline -------- */
 .nav-link {
   position: relative;
   transition: color 0.3s;
@@ -189,7 +167,6 @@ body {
   width: 100%;
 }
 
-/* -------- Skill Badge -------- */
 .skill-badge {
   transition: all 0.3s ease;
   cursor: default;
@@ -201,7 +178,6 @@ body {
   box-shadow: 0 8px 25px rgba(99, 102, 241, 0.2);
 }
 
-/* -------- Primary Button -------- */
 .btn-primary {
   background: linear-gradient(135deg, #6366f1, #4f46e5);
   transition: all 0.3s ease;
@@ -230,7 +206,6 @@ body {
   z-index: 1;
 }
 
-/* -------- Outline Button -------- */
 .btn-outline {
   border: 1.5px solid rgba(99, 102, 241, 0.5);
   transition: all 0.3s ease;
@@ -242,7 +217,6 @@ body {
   box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
 }
 
-/* -------- Social Icon -------- */
 .social-icon {
   transition: all 0.3s ease;
 }
@@ -252,7 +226,6 @@ body {
   color: #818cf8;
 }
 
-/* -------- Stat Card -------- */
 .stat-card {
   transition: all 0.3s ease;
 }
@@ -262,7 +235,6 @@ body {
   border-color: rgba(99, 102, 241, 0.4);
 }
 
-/* -------- Scroll Reveal -------- */
 .reveal {
   opacity: 0;
   transform: translateY(30px);
@@ -274,7 +246,6 @@ body {
   transform: translateY(0);
 }
 
-/* -------- Cursor Blink -------- */
 .cursor {
   display: inline-block;
   width: 2px;
@@ -285,69 +256,39 @@ body {
   animation: blink 1s step-end infinite;
 }
 
-/* -------- Animations -------- */
 @keyframes blink {
-
-  0%,
-  100% {
-    opacity: 1;
-  }
-
-  50% {
-    opacity: 0;
-  }
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 @keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-18px);
-  }
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-18px); }
 }
 
 @keyframes glow {
   0% {
     box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
   }
-
   100% {
     box-shadow: 0 0 40px rgba(99, 102, 241, 0.9), 0 0 80px rgba(34, 211, 238, 0.3);
   }
 }
 
 @keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  0% { opacity: 0; transform: translateY(30px); }
+  100% { opacity: 1; transform: translateY(0); }
 }
 
 @keyframes fadeIn {
-  0% {
-    opacity: 0;
-  }
-
-  100% {
-    opacity: 1;
-  }
+  0% { opacity: 0; }
+  100% { opacity: 1; }
 }
 
-/* -------- Animate Float Utility -------- */
 .animate-float {
   animation: float 6s ease-in-out infinite;
 }
 
-/* -------- Reveal from Left -------- */
 .reveal-left {
   opacity: 0;
   transform: translateX(-50px);
@@ -359,7 +300,6 @@ body {
   transform: translateX(0);
 }
 
-/* -------- Reveal from Right -------- */
 .reveal-right {
   opacity: 0;
   transform: translateX(50px);
@@ -372,7 +312,6 @@ body {
   transform: translateX(0);
 }
 
-/* -------- About Card Pop-in -------- */
 .about-card {
   opacity: 0;
   transform: scale(0.8) translateY(10px);

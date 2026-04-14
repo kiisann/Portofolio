@@ -1,8 +1,6 @@
-// ===== CONFIG =====
 const SECTION_IDS = ['home', 'about', 'projects', 'skills', 'contact'];
 let currentIndex = 0;
 
-// ===== ELEMENTS =====
 const navbar         = document.getElementById('navbar');
 const hamburgerBtn   = document.getElementById('hamburger-btn');
 const mobileMenu     = document.getElementById('mobile-menu');
@@ -10,7 +8,7 @@ const hamburgerLines = document.querySelectorAll('.hamburger-line');
 const navLinks       = document.querySelectorAll('.nav-link');
 const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
 
-// ===== NAVBAR SCROLL EFFECT =====
+// Navbar scroll effect
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
     navbar.classList.add('bg-dark-900/90', 'backdrop-blur-xl', 'border-b', 'border-slate-800/50', 'shadow-xl');
@@ -19,7 +17,6 @@ window.addEventListener('scroll', () => {
   }
 });
 
-// ===== UPDATE ACTIVE NAV LINKS =====
 function updateActiveNav(index) {
   navLinks.forEach((link, i) => {
     link.classList.toggle('active', i === index);
@@ -46,7 +43,7 @@ function updateActiveNav(index) {
   });
 }
 
-// ===== HAMBURGER MENU =====
+// Hamburger menu toggle
 function closeMobileMenu() {
   mobileMenu.classList.add('hidden');
   hamburgerLines[0].style.transform = '';
@@ -66,19 +63,18 @@ hamburgerBtn.addEventListener('click', () => {
   }
 });
 
-// Tutup mobile menu saat klik di luar
 document.addEventListener('click', (e) => {
   if (!navbar.contains(e.target)) closeMobileMenu();
 });
 
-// ===== SCROLL REVEAL =====
+// Scroll reveal
 const revealObs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 
 document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-// ===== TYPING ANIMATION =====
+// Typing animation
 const roles = ['Computer Science Student', 'UI/UX Enthusiast', 'Frontend Developer'];
 let roleIdx = 0, charIdx = 0, isDeleting = false;
 const typingEl = document.getElementById('typing-text');
@@ -95,14 +91,11 @@ if (typingEl) {
   })();
 }
 
-// ===== FOOTER YEAR =====
 const yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-// ===== INIT =====
 updateActiveNav(0);
 
-// Trigger reveal home section on load
 window.addEventListener('load', () => {
   document.querySelectorAll('#home .reveal').forEach((el, i) => {
     setTimeout(() => el.classList.add('visible'), 150 + i * 80);
