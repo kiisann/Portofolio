@@ -43,7 +43,7 @@ const educationData = [
     current: true,
   },
   {
-    degree:  'SMA / Sederajat',
+    degree:  'SMA',
     school:  'SMA Negeri 2 Kotabumi',
     period:  '2021 – 2024',
     desc:    'Lulus dari jurusan IPA dengan minat yang besar pada matematika dan teknologi informasi.',
