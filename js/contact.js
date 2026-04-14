@@ -1,8 +1,8 @@
 const contactInfoData = [
   {
     label: 'Email',
-    value: 'fikisulistiawan@email.com',
-    link: 'mailto:fikisulistiawan@email.com',
+    value: 'fikisulistiawan@gmail.com',
+    link: 'mailto:fikisulistiawan@gmail.com',
     icon: `<path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>`,
     color: 'from-accent-500 to-cyan-400',
   },
@@ -106,44 +106,73 @@ function validateForm() {
   return valid;
 }
 
-// ===== FORM SUBMIT =====
-document.getElementById('contact-form').addEventListener('submit', (e) => {
+// ===== FORM SUBMIT (Formspree) =====
+document.getElementById('contact-form').addEventListener('submit', async (e) => {
   e.preventDefault();
   if (!validateForm()) return;
 
-  const btn = document.getElementById('submit-btn');
+  const btn     = document.getElementById('submit-btn');
   const btnText = document.getElementById('btn-text');
+  const successMsg = document.getElementById('success-msg');
+  const errorMsg   = document.getElementById('error-msg');
 
   // Loading state
   btn.disabled = true;
   btnText.textContent = 'Mengirim...';
 
-  // Simulate send
-  setTimeout(() => {
-    // Tampilkan banner sukses di atas form
-    const successMsg = document.getElementById('success-msg');
-    successMsg.classList.remove('hidden');
-    successMsg.classList.add('flex');
+  const form = document.getElementById('contact-form');
+  const data = {
+    name:    document.getElementById('input-name').value.trim(),
+    email:   document.getElementById('input-email').value.trim(),
+    subject: document.getElementById('input-subject').value.trim(),
+    message: document.getElementById('input-message').value.trim(),
+  };
 
-    // Reset tombol
+  try {
+    const res = await fetch('https://formspree.io/f/xbdqjnkb', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify(data),
+    });
+
+    if (res.ok) {
+      // Sukses
+      successMsg.classList.remove('hidden');
+      successMsg.classList.add('flex');
+      form.reset();
+
+      // Auto-dismiss setelah 5 detik
+      setTimeout(() => {
+        successMsg.style.transition = 'opacity 0.5s ease';
+        successMsg.style.opacity = '0';
+        setTimeout(() => {
+          successMsg.classList.add('hidden');
+          successMsg.classList.remove('flex');
+          successMsg.style.opacity = '';
+          successMsg.style.transition = '';
+        }, 500);
+      }, 5000);
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (err) {
+    // Gagal
+    errorMsg.classList.remove('hidden');
+    errorMsg.classList.add('flex');
+    setTimeout(() => {
+      errorMsg.style.transition = 'opacity 0.5s ease';
+      errorMsg.style.opacity = '0';
+      setTimeout(() => {
+        errorMsg.classList.add('hidden');
+        errorMsg.classList.remove('flex');
+        errorMsg.style.opacity = '';
+        errorMsg.style.transition = '';
+      }, 500);
+    }, 5000);
+  } finally {
     btn.disabled = false;
     btnText.textContent = 'Kirim Pesan';
-
-    // Reset form fields
-    document.getElementById('contact-form').reset();
-
-    // Auto-dismiss banner setelah 4 detik
-    setTimeout(() => {
-      successMsg.style.transition = 'opacity 0.5s ease';
-      successMsg.style.opacity = '0';
-      setTimeout(() => {
-        successMsg.classList.add('hidden');
-        successMsg.classList.remove('flex');
-        successMsg.style.opacity = '';
-        successMsg.style.transition = '';
-      }, 500);
-    }, 4000);
-  }, 1500);
+  }
 });
 
 // ===== SCROLL REVEAL =====
